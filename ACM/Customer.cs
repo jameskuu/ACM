@@ -33,10 +33,6 @@ namespace ACM.BL
         public static int InstantCount { get; set; }
 
 
-
-
-
-
         private string _lastName;
         public string LastName 
         {
@@ -49,5 +45,51 @@ namespace ACM.BL
                 _lastName = value;
             }
         }
+
+        /// <summary>
+        /// Retrieve on customer by id
+        /// </summary>
+        public Customer Retrieve(int customerId)
+        {
+            // Code that retrieves the defined customer
+
+            return new Customer();
+        }
+
+        /// <summary>
+        /// Retrieve all customers.
+        /// </summary>
+        public List<Customer> Retrieve()
+        {
+            // Code that retrieves all of the customers
+
+            return new List<Customer>();
+        }
+
+        /// <summary>
+        /// Saves the current customer.
+        /// </summary>
+        /// <returns></returns>
+        public bool Save()
+        {
+            // Code that saves the defined customer
+
+            return true;
+        }
+
+        /// <summary>
+        /// Validates the customer data.
+        /// </summary>
+        /// <returns></returns>
+        public bool Validate()
+        {
+            var isValid = true;
+
+            if (string.IsNullOrWhiteSpace(LastName)) isValid = false;
+            if (string.IsNullOrWhiteSpace(EmailAddress)) isValid = false;
+
+            return isValid;
+        }
+
     }
 }
