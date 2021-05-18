@@ -8,26 +8,57 @@ namespace ACM.BL
 {
     class Product
     {
-        public string ProductName { get; set; }
-        public string Description { get; set; }
-        public double CurrentPrice { get; set; }
-        public int MyProperty { get; set; }
+        public Product()
+        {
 
+        }
+
+        public Product(int productId)
+        {
+            ProductId = productId;
+        }
+        public string ProductName { get; set; }
+        public string ProductDescription { get; set; }
+        public int ProductId { get; private set; }
+        public decimal? CurrentPrice { get; set; }
+
+        /// <summary>
+        /// Validates the product data
+        /// </summary>
+        /// <returns></returns>
         public bool Validate()
         {
             var isValid = true;
 
             if (string.IsNullOrWhiteSpace(ProductName)) isValid = false;
-            if (string.IsNullOrWhiteSpace(Description)) isValid = false;
-            if (double.IsNaN(CurrentPrice)) isValid = false;
-           
+            if (string.IsNullOrWhiteSpace(ProductDescription)) isValid = false;
+            if (CurrentPrice == null) isValid = false;
+            
             return isValid;
         }
+
+        /// <summary>
+        /// Retrieve one product
+        /// </summary>
+        /// <returns></returns>
+        public Product Retrieve(int productId)
+        {
+            return new Product();
+        }
+
+        /// <summary>
+        /// Retrieve all products
+        /// </summary>
+        /// <returns></returns>
         public List<Product> Retrieve()
         {
             return new List<Product>();
         }
 
+        /// <summary>
+        /// Saves the current product
+        /// </summary>
+        /// <returns></returns>
         public bool Save()
         {
             return true;
