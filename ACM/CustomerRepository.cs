@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ACM.BL
 {
 
-    class CustomerRepository
+    public class CustomerRepository
     {
         /// <summary>
         /// Retrieve one customer
